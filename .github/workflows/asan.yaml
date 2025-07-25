@@ -12,10 +12,11 @@ jobs:
       matrix:
         # ref: https://github.com/actions/runner-images
         os: [ubuntu-latest, macos-15]
-        luaVersion: ["5.4.7", "5.4.6", "5.4.5"]
+        luaVersion: ["5.5.0-beta", "5.4.8"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      # https://www.lua.org/work/lua-5.5.0-beta.tar.gz
       - name: install lua
         run: |
           wget http://www.lua.org/ftp/lua-${{ matrix.luaVersion }}.tar.gz
